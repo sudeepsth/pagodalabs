@@ -16,8 +16,13 @@ class ExportController extends Controller
      */
     public function __invoke(Request $request)
     {
-         
+
         $data = array();
+        $path = public_path('employee.csv');
+        if(file_exists($path)){
+            unlink($path);
+        }
+        if(isset($request->id)){
         foreach($request->id as $key=>$item){
             array_push($data,[
                 'id' => $request->id[$key],
@@ -26,7 +31,7 @@ class ExportController extends Controller
                 'joinDate' => $request->joinDate[$key],
             ]);
         }
-
+    }
         $data = Excel::store(new EmployeeExport($data), 'employee.csv');
         return redirect()->back()->with('success', 'your message,here');
     }

@@ -40,7 +40,6 @@ class HomeController extends Controller
                  $file = false;
              }
 
-
             return view('edit',compact('data','id','file'));
     }
 
@@ -61,15 +60,17 @@ class HomeController extends Controller
              */
 
             fclose($fin);
+            if(isset($request->id)){
+                foreach($request->id as $key=>$item){
+                    array_push($data,[
+                        0 => $request->id[$key],
+                        1 => $request->name[$key],
+                        2 => $request->designation[$key],
+                        3 => $request->joinDate[$key],
+                    ]);
+                 }
+            }
 
-            foreach($request->id as $key=>$item){
-                array_push($data,[
-                    0 => $request->id[$key],
-                    1 => $request->name[$key],
-                    2 => $request->designation[$key],
-                    3 => $request->joinDate[$key],
-                ]);
-             }
 
             $fout = fopen($path, 'w');
             foreach ($data as $line) {

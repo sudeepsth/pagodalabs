@@ -51,9 +51,9 @@
                     <tbody>
                         <tr>
                             <th scope="row"><input type="hidden" name="id[]" value="1">1</th>
-                            <td><input type="text" name="name[]" placeholder="Enter Name"></td>
-                            <td><input type="text" name="designation[]" placeholder="Enter Designation"> </td>
-                            <td><input type="text" name="joinDate[]" placeholder="Enter Join Date"></td>
+                            <td><input type="text" name="name[]" placeholder="Enter Name" required></td>
+                            <td><input type="text" name="designation[]" placeholder="Enter Designation" required> </td>
+                            <td><input type="text" name="joinDate[]" placeholder="Enter Join Date" required></td>
                             <td><button class="btn btn-danger row-delete">Delete</button></td>
                         </tr>
                     </tbody>
@@ -74,7 +74,7 @@
            var num=1;
         $(".add-row").click(function(){
             num = num+1;
-            var row = "<tr><th><input type='hidden' name='id[]' value='"+num+"'>"+ num +"</th><td><input type='text' name='name[]' placeholder='Enter Name'></td><td><input type='text' name='designation[]' placeholder='Enter Designation'></td> <td><input type='text' name='joinDate[]' placeholder='Enter Join Date'></td> <td><button class='btn btn-danger row-delete'>Delete</button></td>";
+            var row = "<tr><th><input type='hidden' name='id[]' value='"+num+"'>"+ num +"</th><td><input type='text' name='name[]' placeholder='Enter Name' required></td><td><input type='text' name='designation[]' placeholder='Enter Designation' required></td> <td><input type='text' name='joinDate[]' placeholder='Enter Join Date' required></td> <td><button class='btn btn-danger row-delete'>Delete</button></td>";
             $("table tbody").append(row);
         });
         $("#table").on('click','.row-delete',function () {

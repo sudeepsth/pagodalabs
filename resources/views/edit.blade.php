@@ -52,9 +52,9 @@
                             @foreach($data as $item)
                             <tr>
                             <th scope="row" style="width:10px"><input type="hidden" name="id[]" value="{{$item[0]}}"><input style="width:30px" type="text" value="{{$item[0]}}" disabled></th>
-                                <td><input type="text" name="name[]" value="{{$item[1]}}" placeholder="Enter Name"></td>
-                                <td><input type="text" name="designation[]" value="{{$item[2]}}" placeholder="Enter Designation"> </td>
-                                <td><input type="text" name="joinDate[]" value="{{$item[3]}}" placeholder="Enter Join Date"></td>
+                                <td><input type="text" name="name[]" value="{{$item[1]}}" placeholder="Enter Name" required></td>
+                                <td><input type="text" name="designation[]" value="{{$item[2]}}" placeholder="Enter Designation" required> </td>
+                                <td><input type="text" name="joinDate[]" value="{{$item[3]}}" placeholder="Enter Join Date" required></td>
                                 <td><button class="btn btn-danger row-delete">Delete</button></td>
                             </tr>
                             @endforeach
@@ -62,7 +62,7 @@
                     </tbody>
                 </table>
                 <center><button type="submit" class="col-md-3 btn btn-success" @if(!$file) disabled @endif>Update Record</button></center>
-                
+
             </form>
             </div>
             <div class="col-md-2"></div>
